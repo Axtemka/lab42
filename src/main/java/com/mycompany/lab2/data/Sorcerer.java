@@ -9,5 +9,23 @@ package com.mycompany.lab2.data;
  * @author temdo
  */
 public class Sorcerer {
+    private String name;
+    private Rank rank;
+
+    public String getName() {
+        return name;
+    }
+
+    public Rank getRank() {
+        return rank;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setRank(Rank rank) {
+        this.rank = rank;
+    }
     
 }

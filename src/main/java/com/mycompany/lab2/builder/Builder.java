@@ -4,10 +4,19 @@
  */
 package com.mycompany.lab2.builder;
 
+import com.mycompany.lab2.dto.CurseDTO;
+import java.util.LinkedHashMap;
+
 /**
  *
  * @author temdo
  */
 public interface Builder {
-    
+    void reset();
+    void setMissionId(String missionId);
+    void setDate(String date);
+    void setLocaton(String missionId);
+    void setOutcome(String outcome);
+    void setCurse(CurseDTO curseDTO);
+    void setExtras(LinkedHashMap<String, Object> extras);
 }
