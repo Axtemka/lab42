@@ -4,10 +4,43 @@
  */
 package com.mycompany.lab2.strategies;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import com.mycompany.lab2.builder.Builder;
+import com.mycompany.lab2.builder.MissionBuilder;
+import com.mycompany.lab2.data.Mission;
+import com.mycompany.lab2.dto.MissionDTO;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Unmarshaller;
+import java.io.File;
+import java.io.IOException;
+
 /**
  *
  * @author temdo
  */
-public class XmlStrategy {
-    
+public class XmlStrategy implements ParsingStrategy{
+    @Override
+    public Mission parse(String path) {
+        XmlMapper mapper = new XmlMapper();
+        try {
+            MissionDTO missionDTO = mapper.readValue(new File(path), MissionDTO.class);
+            Builder missionBuilder = new MissionBuilder();
+            
+            missionBuilder.setMissionId(missionDTO.getMissionId());
+            missionBuilder.setDate(missionDTO.getDate());
+            missionBuilder.setLocaton(missionDTO.getLocation());
+            missionBuilder.setOutcome(missionDTO.getOutcome());
+            missionBuilder.setCurse(missionDTO.getCurse());
+            missionBuilder.setExtras(missionDTO.getExtras());
+            
+            Mission mission = missionBuilder.getResult();
+            return mission;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

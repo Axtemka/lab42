@@ -4,10 +4,27 @@
  */
 package com.mycompany.lab2.feedback;
 
+import com.mycompany.lab2.data.Mission;
+
 /**
  *
  * @author temdo
  */
-abstract public class FeedbackDecorator {
+abstract public class FeedbackDecorator implements Feedback{
+    private Feedback wrapper;
+    private Mission mission;
     
+    public FeedbackDecorator(Feedback wrapper, Mission mission){
+        this.wrapper = wrapper;
+        this.mission = mission;
+    }
+    
+    public Mission getMission(){
+        return mission;
+    }
+   
+    @Override
+    public String getFeedback(){
+        return wrapper.getFeedback();
+    }
 }

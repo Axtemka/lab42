@@ -4,6 +4,7 @@
  */
 package com.mycompany.lab2.builder;
 
+import com.mycompany.lab2.data.Mission;
 import com.mycompany.lab2.dto.CurseDTO;
 import java.util.LinkedHashMap;
 
@@ -19,4 +20,5 @@ public interface Builder {
     void setOutcome(String outcome);
     void setCurse(CurseDTO curseDTO);
     void setExtras(LinkedHashMap<String, Object> extras);
+    Mission getResult();
 }

@@ -4,13 +4,14 @@
  */
 package com.mycompany.lab2.data;
 
+import com.mycompany.lab2.feedback.Feedback;
 import java.util.LinkedHashMap;
 
 /**
  *
  * @author temdo
  */
-public class Mission {
+public class Mission implements Feedback{
     private String missionId;
     private String date;
     private String location;
@@ -65,5 +66,19 @@ public class Mission {
     public void setExtras(LinkedHashMap<String, Object> extras) {
         this.extras = extras;
     }    
+
+    @Override
+    public String getFeedback() {
+        
+        String feedback = "";
+        return feedback + 
+                "\nmissionId: " + missionId + 
+                "\ndate: " + date + 
+                "\nlocation: " + location + 
+                "\noutcome:" + outcome + 
+                "\ncurse.name: " + curse.getName() + 
+                "\ncurse.threatLevel:" + curse.getThreatLevel();
+        
+    }
     
 }

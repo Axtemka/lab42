@@ -4,10 +4,12 @@
  */
 package com.mycompany.lab2.strategies;
 
+import com.mycompany.lab2.data.Mission;
+
 /**
  *
  * @author temdo
  */
 public interface ParsingStrategy {
-    
+    Mission parse(String path);
 }

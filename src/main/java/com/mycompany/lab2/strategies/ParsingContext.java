@@ -4,10 +4,21 @@
  */
 package com.mycompany.lab2.strategies;
 
+import com.mycompany.lab2.data.Mission;
+
 /**
  *
  * @author temdo
  */
 public class ParsingContext {
+    private ParsingStrategy strategy;
+    
+    public void setParsingStrategy(ParsingStrategy strategy){
+        this.strategy = strategy;
+    }
+    
+    public Mission useParsingStrategy(String path){
+        return strategy.parse(path);
+    }
     
 }

@@ -9,5 +9,5 @@ package com.mycompany.lab2.feedback;
  * @author temdo
  */
 public interface Feedback {
-    
+    String getFeedback();
 }

@@ -16,7 +16,7 @@ import java.util.LinkedHashMap;
  * @author temdo
  */
 public class MissionBuilder implements Builder{
-    private Mission mission;
+    private Mission mission = new Mission();
     @Override
     public void setMissionId(String missionId) {
         mission.setMissionId(missionId);
@@ -54,6 +54,7 @@ public class MissionBuilder implements Builder{
     public void reset() {
         mission = new Mission();
     }
+    @Override
     public Mission getResult(){
         return mission;
     }
