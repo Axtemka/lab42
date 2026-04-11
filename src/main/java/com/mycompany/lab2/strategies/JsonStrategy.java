@@ -10,7 +10,6 @@ import com.mycompany.lab2.builder.MissionBuilder;
 import com.mycompany.lab2.data.Mission;
 import com.mycompany.lab2.dto.MissionDTO;
 import java.io.File;
-import java.io.IOException;
 
 /**
  *
@@ -30,6 +29,13 @@ public class JsonStrategy implements ParsingStrategy{
             missionBuilder.setLocaton(missionDTO.getLocation());
             missionBuilder.setOutcome(missionDTO.getOutcome());
             missionBuilder.setCurse(missionDTO.getCurse());
+            missionBuilder.setSorcerers(missionDTO.getSorcerers());
+            missionBuilder.setTechniques(missionDTO.getTechniques());
+            missionBuilder.setEconomicAssessment(missionDTO.getEconomicAssessment());
+            missionBuilder.setCivilianImpact(missionDTO.getCivilianImpact());
+            missionBuilder.setEnemyActivity(missionDTO.getEnemyActivity());
+            missionBuilder.setEnvironmentConditions(missionDTO.getEnvironmentConditions());
+            missionBuilder.setOperationTimeline(missionDTO.getOperationTimeLineDTO());
             missionBuilder.setExtras(missionDTO.getExtras());
             
             Mission mission = missionBuilder.getResult();

@@ -33,6 +33,13 @@ public class XmlStrategy implements ParsingStrategy{
             missionBuilder.setLocaton(missionDTO.getLocation());
             missionBuilder.setOutcome(missionDTO.getOutcome());
             missionBuilder.setCurse(missionDTO.getCurse());
+            missionBuilder.setSorcerers(missionDTO.getSorcerers());
+            missionBuilder.setTechniques(missionDTO.getTechniques());
+            missionBuilder.setEconomicAssessment(missionDTO.getEconomicAssessment());
+            missionBuilder.setCivilianImpact(missionDTO.getCivilianImpact());
+            missionBuilder.setEnemyActivity(missionDTO.getEnemyActivity());
+            missionBuilder.setEnvironmentConditions(missionDTO.getEnvironmentConditions());
+            missionBuilder.setOperationTimeline(missionDTO.getOperationTimeLineDTO());
             missionBuilder.setExtras(missionDTO.getExtras());
             
             Mission mission = missionBuilder.getResult();

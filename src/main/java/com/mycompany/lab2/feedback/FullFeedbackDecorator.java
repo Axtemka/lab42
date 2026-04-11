@@ -23,30 +23,37 @@ public class FullFeedbackDecorator extends FeedbackDecorator{
     public String getFeedback(){
         String wrapperFeedback = super.getFeedback();
         Mission currentMission = super.getMission();
-        String fb = "\n\n=========Extra information=========\n";
         
-        LinkedHashMap<String, Object> extras = currentMission.getExtras();
-        
-        if (extras == null || extras.isEmpty()) return wrapperFeedback + "\n\n============There is no Extra Information.===========\n";
-        for (Map.Entry<String, Object> entry : extras.entrySet()) {
-            String key = entry.getKey();
-            Object value = entry.getValue();
-
-            if (value == null) {
-                fb += key + ": null\n";
-                
-            } else if (value instanceof Map) {
-                fb += key + ":\n";
-                
-                for (Map.Entry<String, Object> subEntry : ((Map<String, Object>) value).entrySet()) {
-                    fb += "    " + subEntry.getKey() + ": " + subEntry.getValue() + "\n";
-                }
-            } else if (value instanceof Collection) {
-                fb += key + ": " + value.toString() + "\n";
-            } else {
-                fb += key + ": " + value.toString() + "\n";
-            }
+        String fb = "\n\n=========Added output=========\n";
+        try{
+            fb += "\n" + currentMission.getSorcerers().toString() + "\n" + currentMission.getTechniques().toString() + "\n";
         }
+        catch (Exception e){
+            System.out.println("Something went wrong. Try again.");
+            fb = "\n\n============There is no Added Info/Added info is null or empty.===========\n";
+        }
+//        LinkedHashMap<String, Object> extras = currentMission.getExtras();
+//        
+//        if (extras == null || extras.isEmpty()) return wrapperFeedback + "\n\n============There is no Extra Information.===========\n";
+//        for (Map.Entry<String, Object> entry : extras.entrySet()) {
+//            String key = entry.getKey();
+//            Object value = entry.getValue();
+//
+//            if (value == null) {
+//                fb += key + ": null\n";
+//                
+//            } else if (value instanceof Map) {
+//                fb += key + ":\n";
+//                
+//                for (Map.Entry<String, Object> subEntry : ((Map<String, Object>) value).entrySet()) {
+//                    fb += "    " + subEntry.getKey() + ": " + subEntry.getValue() + "\n";
+//                }
+//            } else if (value instanceof Collection) {
+//                fb += key + ": " + value.toString() + "\n";
+//            } else {
+//                fb += key + ": " + value.toString() + "\n";
+//            }
+//        }
         
         return wrapperFeedback + " " + fb;
     }
